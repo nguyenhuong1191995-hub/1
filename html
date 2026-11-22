@@ -1,0 +1,141 @@
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chúc mừng Ngày Nhà giáo Việt Nam 20/11</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #fff1eb 0%, #ace0f9 100%);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
+      position: relative;
+      padding: 16px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      max-width: 480px;
+      width: 100%;
+      padding: 36px 28px;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+      text-align: center;
+      z-index: 2;
+      border: 2px solid #ffe4e6;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #ffe4e6;
+      color: #be123c;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      color: #1e293b;
+      font-size: 1.7rem;
+      margin-bottom: 14px;
+    }
+
+    p {
+      color: #334155;
+      font-size: 1.05rem;
+      line-height: 1.65;
+      min-height: 84px;
+      margin-bottom: 24px;
+    }
+
+    button {
+      background: linear-gradient(135deg, #e11d48, #f43f5e);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      box-shadow: 0 6px 16px rgba(225, 29, 72, 0.3);
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(225, 29, 72, 0.4);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    .flower {
+      position: fixed;
+      top: -40px;
+      font-size: 24px;
+      pointer-events: none;
+      z-index: 1;
+      animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0.85;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="badge">NGÀY NHÀ GIÁO VIỆT NAM • 20/11</div>
+    <h1>Tri Ân Thầy Cô 🌸</h1>
+    <p id="wish">
+      Chúc quý thầy cô luôn dồi dào sức khỏe, bình an, hạnh phúc và mãi giữ ngọn lửa đam mê trên bục giảng!
+    </p>
+    <button onclick="doiLoiChuc()">Đổi lời chúc</button>
+  </div>
+
+  <script>
+    const loiChuc = [
+      "Chúc quý thầy cô luôn dồi dào sức khỏe, bình an, hạnh phúc và mãi giữ ngọn lửa đam mê trên bục giảng!",
+      "Nhân ngày 20/11, kính chúc thầy cô thật nhiều niềm vui, luôn rạng rỡ và gặt hái thêm nhiều thành công mới.",
+      "Cảm ơn thầy cô đã tận tâm dìu dắt và truyền cảm hứng cho bao thế hệ học trò. Kính chúc thầy cô vạn sự như ý!",
+      "Chúc thầy cô có một ngày 20/11 thật ý nghĩa, ấm áp bên gia đình, đồng nghiệp và những lứa học trò yêu thương."
+    ];
+
+    let index = 0;
+    function doiLoiChuc() {
+      index = (index + 1) % loiChuc.length;
+      document.getElementById("wish").textContent = loiChuc[index];
+    }
+
+    const icons = ["🌸", "🌷", "💐", "✨", "🍃"];
+    setInterval(() => {
+      const flower = document.createElement("div");
+      flower.className = "flower";
+      flower.textContent = icons[Math.floor(Math.random() * icons.length)];
+      flower.style.left = Math.random() * 100 + "vw";
+      flower.style.fontSize = (18 + Math.random() * 16) + "px";
+      const duration = 4 + Math.random() * 4;
+      flower.style.animationDuration = duration + "s";
+      document.body.appendChild(flower);
+
+      setTimeout(() => flower.remove(), duration * 1000);
+    }, 450);
+  </script>
+</body>
+</html>
