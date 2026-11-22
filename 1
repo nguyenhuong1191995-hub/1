@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc mừng ngày 20/11</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ffe0ec, #e4d9ff);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .card {
+            background: white;
+            padding: 40px 25px;
+            border-radius: 25px;
+            max-width: 550px;
+            width: 90%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            animation: appear 1.2s ease;
+        }
+
+        .flower {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            color: #e75480;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #a64d79;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #555;
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .signature {
+            color: #e75480;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        button {
+            background: #e75480;
+            color: white;
+            border: none;
+            padding: 13px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #c93668;
+            transform: scale(1.05);
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .heart {
+            position: absolute;
+            bottom: -30px;
+            font-size: 22px;
+            animation: fly 5s linear infinite;
+        }
+
+        @keyframes fly {
+            to {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <div class="flower">🌸💐🌷</div>
+
+        <h1>Happy Vietnamese Teachers' Day!</h1>
+
+        <h2>Chúc mừng ngày Nhà giáo Việt Nam 20/11</h2>
+
+        <p>
+            Kính chúc quý thầy cô luôn mạnh khỏe,
+            hạnh phúc và thành công trong sự nghiệp
+            trồng người.
+            <br><br>
+            Cảm ơn thầy cô đã luôn tận tâm,
+            dìu dắt và truyền đạt những kiến thức
+            quý báu cho chúng em.
+            <br><br>
+            Chúc thầy cô có một ngày 20/11 thật
+            ý nghĩa, tràn ngập niềm vui và yêu thương!
+        </p>
+
+        <div class="signature">
+            ❤️ Tri ân thầy cô ❤️
+        </div>
+
+        <br>
+
+        <button onclick="showMessage()">
+            Nhấn vào đây 💌
+        </button>
+    </div>
+
+    <script>
+        function showMessage() {
+            alert("Chúc thầy cô luôn vui vẻ, mạnh khỏe và hạnh phúc! ❤️");
+        }
+
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.className = "heart";
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = (3 + Math.random() * 4) + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+        }
+
+        setInterval(createHeart, 500);
+    </script>
+
+</body>
+</html>
